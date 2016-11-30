@@ -14,21 +14,27 @@
         ?>
 			</div>
 		</div>
+		<div id="logo-wrap">
+			<div id="logo">
+				<?php
+          include 'includes/logo.inc.php';
+        ?>
+			</div>
+		</div>
     <!-- header end -->
 
 
 		<!-- start page -->
-
 		<div id="page">
 			<!-- start content -->
 		   <div id="content">
 					<div class="post">
-							<h1 class="title">Welcome to
+							<h1 class="title">Welcome
 							<?php
                 if (isset($_SESSION['status'])) {
-                    echo $_SESSION['unm'];
+                    echo $_SESSION['unm'].'!';
                 } else {
-                    echo 'Book Store';
+                    echo 'to Book Store!';
                 }
               ?>
 							</h1>
