@@ -7,7 +7,7 @@
                   echo '<h2>Hello :  '.$_SESSION['unm'].'</h2>';
               } else {
                   echo '<form action="process_login.php" method="POST">
-										<h2>LogIn</h2>
+										<h2>Login</h2>
 											<b>Username:</b>
 											<br><input type="text" name="usernm"><br>
 											<br>
@@ -30,7 +30,7 @@
 					</fieldset>
 				</form>
 			</li>
-			<li>
+			<li id="category">
 				<h2>Categories</h2>
 				<ul>
 					<?php

@@ -8,7 +8,6 @@
 			<?php
 					if(isset($_SESSION['status']))
 					{
-
 						echo '<li><a href="logout.php">Logout</a></li>';
 					}
 					else
