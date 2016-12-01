@@ -2,16 +2,16 @@
 
 require('includes/config.php');
 
-	if(!empty($_post))
+	if(!empty($_POST))
 	{
 		$msg="";
 
-		if(empty($_post['usernm']))
+		if(empty($_POST['usernm']))
 		{
 			$msg[]="no such user";
 		}
 
-		if(empty($_post['pwd']))
+		if(empty($_POST['pwd']))
 		{
 			$msg[]="password incorrect.";
 		}
@@ -28,7 +28,7 @@ require('includes/config.php');
 		}
 		else
 		{
-			$unm=$_post['usernm'];
+			$unm=$_POST['usernm'];
 
 			$q="select * from user where u_unm='$unm'";
 
@@ -38,14 +38,14 @@ require('includes/config.php');
 
 			if(!empty($row))
 			{
-				if($_post['pwd']==$row['u_pwd'])
+				if($_POST['pwd']==$row['u_pwd'])
 				{
-					$_session=array();
-					$_session['unm']=$row['u_unm'];
-					$_session['uid']=$row['u_pwd'];
-					$_session['status']=true;
+					$_SESSION=array();
+					$_SESSION['unm']=$row['u_unm'];
+					$_SESSION['uid']=$row['u_pwd'];
+					$_SESSION['status']=true;
 
-					if($_session['unm']!="admin")
+					if($_SESSION['unm']!="admin")
 					{
 						header("location:index.php");
 					}
