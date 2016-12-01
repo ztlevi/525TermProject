@@ -7,7 +7,16 @@ Released for free under a Creative Commons Attribution 2.5 License
 body {
 	padding: 0;
 	font-size: 13px;
-	color: #333333;
+}
+
+.entry table {
+	border-color: #559106;
+}
+
+td.title {
+	font-size: 20px;
+	color: #559106;
+	background-color: beige;
 }
 
 h1, h2, h3 {
@@ -24,6 +33,10 @@ h1 {
 
 h2 {
 	font-size: 23px;
+}
+
+.title {
+	text-align: center;
 }
 
 p, ul, ol {
@@ -384,4 +397,12 @@ html>body #footer {
 
 #legal a {
 	color: #999999;
+}
+
+input.button {
+	padding: 3px;
+	border: none;
+	background: #467805;
+	font-size: 11px;
+	color: #FFFFFF;
 }

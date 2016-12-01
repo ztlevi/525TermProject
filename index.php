@@ -39,11 +39,6 @@
               ?>
 							</h1>
 							<div class="entry">
-								<br>
-
-								<br>
-
-								<br><br>
 
 							</div>
 
