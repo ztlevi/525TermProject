@@ -45,14 +45,7 @@ require('includes/config.php');
 					$_SESSION['uid']=$row['u_pwd'];
 					$_SESSION['status']=true;
 
-					if($_SESSION['unm']!="admin")
-					{
-						header("location:index.php");
-					}
-					else
-					{
-						header("location:admin/index.php");
-					}
+					header("location:index.php");
 				}
 
 				else

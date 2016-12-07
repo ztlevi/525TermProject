@@ -114,25 +114,7 @@
 
 												<tr>
 													<td><b>City:</b>&nbsp;&nbsp;</td>
-													<td>
-													<select style="width: 195px;" name="city">
-
-															<option>Ahmedabad
-															<option>Baroda
-															<option>Jamnagar
-															<option>Rajkot
-															<option>Porbandar
-															<option>Anand
-															<option>Surat
-															<option>Surendranagar
-															<option>Jamnagar
-															<option>Junagadh
-															<option>Amreli
-															<option>Bhavnagar
-															<option>Mehsana
-
-
-													</select>
+													<td><input type='text' name='city' size='30'></td>
 
 												</tr>
 
