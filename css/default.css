@@ -92,7 +92,11 @@ legend {
 	display: none;
 }
 
-input:not(#x){
+#m, #f {
+	width: 35px;
+}
+
+input:not(#x,#m,#f){
     width: 135px;
 }
 
