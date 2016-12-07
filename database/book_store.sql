@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jun 12, 2016 at 07:50 AM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
+-- Host: localhost
+-- Generation Time: Dec 07, 2016 at 09:30 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `book_store`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Table structure for table `book`
 --
 
-CREATE TABLE IF NOT EXISTS `book` (
-  `b_id` int(4) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `book` (
+  `b_id` int(4) NOT NULL,
   `b_nm` varchar(60) NOT NULL,
   `b_subcat` varchar(25) NOT NULL,
   `b_desc` longtext NOT NULL,
@@ -37,9 +37,8 @@ CREATE TABLE IF NOT EXISTS `book` (
   `b_page` int(5) NOT NULL,
   `b_price` int(5) NOT NULL,
   `b_img` longtext NOT NULL,
-  `b_pdf` longtext NOT NULL,
-  PRIMARY KEY (`b_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
+  `b_pdf` longtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `book`
@@ -103,11 +102,10 @@ INSERT INTO `book` (`b_id`, `b_nm`, `b_subcat`, `b_desc`, `b_publisher`, `b_edit
 -- Table structure for table `category`
 --
 
-CREATE TABLE IF NOT EXISTS `category` (
-  `cat_id` int(4) NOT NULL AUTO_INCREMENT,
-  `cat_nm` varchar(30) NOT NULL,
-  PRIMARY KEY (`cat_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+CREATE TABLE `category` (
+  `cat_id` int(4) NOT NULL,
+  `cat_nm` varchar(30) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `category`
@@ -133,8 +131,7 @@ INSERT INTO `category` (`cat_id`, `cat_nm`) VALUES
 (17, 'Computer'),
 (18, 'Cooking'),
 (19, 'Science'),
-(20, 'Compititive Exam'),
-(21, 'tess');
+(20, 'Compititive Exam');
 
 -- --------------------------------------------------------
 
@@ -142,13 +139,12 @@ INSERT INTO `category` (`cat_id`, `cat_nm`) VALUES
 -- Table structure for table `contact`
 --
 
-CREATE TABLE IF NOT EXISTS `contact` (
-  `con_id` int(4) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contact` (
+  `con_id` int(4) NOT NULL,
   `con_nm` varchar(25) NOT NULL,
   `con_email` varchar(35) NOT NULL,
-  `con_query` longtext NOT NULL,
-  PRIMARY KEY (`con_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+  `con_query` longtext NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `contact`
@@ -166,17 +162,16 @@ INSERT INTO `contact` (`con_id`, `con_nm`, `con_email`, `con_query`) VALUES
 -- Table structure for table `shipping_details`
 --
 
-CREATE TABLE IF NOT EXISTS `shipping_details` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `shipping_details` (
+  `id` int(11) NOT NULL,
   `name` char(50) NOT NULL,
   `address` text NOT NULL,
   `postal_code` bigint(20) NOT NULL,
   `city` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `phone` bigint(20) NOT NULL,
-  `f_id` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `f_id` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `shipping_details`
@@ -192,12 +187,11 @@ INSERT INTO `shipping_details` (`id`, `name`, `address`, `postal_code`, `city`, 
 -- Table structure for table `subcat`
 --
 
-CREATE TABLE IF NOT EXISTS `subcat` (
-  `subcat_id` int(4) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `subcat` (
+  `subcat_id` int(4) NOT NULL,
   `parent_id` int(4) NOT NULL,
-  `subcat_nm` varchar(35) NOT NULL,
-  PRIMARY KEY (`subcat_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=36 ;
+  `subcat_nm` varchar(35) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `subcat`
@@ -235,8 +229,7 @@ INSERT INTO `subcat` (`subcat_id`, `parent_id`, `subcat_nm`) VALUES
 (33, 20, 'CAT'),
 (31, 20, 'GMAT'),
 (32, 20, 'MBA'),
-(34, 20, 'BBA'),
-(35, 21, 'test1');
+(34, 20, 'BBA');
 
 -- --------------------------------------------------------
 
@@ -244,17 +237,16 @@ INSERT INTO `subcat` (`subcat_id`, `parent_id`, `subcat_nm`) VALUES
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `u_id` int(4) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `user` (
+  `u_id` int(4) NOT NULL,
   `u_fnm` varchar(35) NOT NULL,
   `u_unm` varchar(25) NOT NULL,
   `u_pwd` varchar(20) NOT NULL,
   `u_gender` varchar(7) NOT NULL,
   `u_email` varchar(35) NOT NULL,
   `u_contact` varchar(12) NOT NULL,
-  `u_city` varchar(20) NOT NULL,
-  PRIMARY KEY (`u_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+  `u_city` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
@@ -266,8 +258,82 @@ INSERT INTO `user` (`u_id`, `u_fnm`, `u_unm`, `u_pwd`, `u_gender`, `u_email`, `u
 (3, 'Lina', 'Lina123', '123', 'Female', 'lina123@gmail.com', '9456325663', 'Amreli'),
 (4, 'admin', 'admin', 'admin123', 'Female', 'admin@gmail.com', '9859632561', 'Rajkot'),
 (5, 'Kaushik', 'Darcy', '160160160', 'Male', 'darcy@gmail.com', '9016388880', 'Rajkot'),
-(6, 'sanjeev', 'kumar', 'sanjeev', 'Male', 'sanjeevtech2@gmail.com', '9015501897', 'Ahmedabad');
+(6, 'sanjeev', 'root', 'root', 'Male', 'sanjeevtech2@gmail.com', '9015501897', 'Ahmedabad');
 
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `book`
+--
+ALTER TABLE `book`
+  ADD PRIMARY KEY (`b_id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`con_id`);
+
+--
+-- Indexes for table `shipping_details`
+--
+ALTER TABLE `shipping_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subcat`
+--
+ALTER TABLE `subcat`
+  ADD PRIMARY KEY (`subcat_id`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`u_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `book`
+--
+ALTER TABLE `book`
+  MODIFY `b_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `cat_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `con_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `shipping_details`
+--
+ALTER TABLE `shipping_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `subcat`
+--
+ALTER TABLE `subcat`
+  MODIFY `subcat_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `u_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
